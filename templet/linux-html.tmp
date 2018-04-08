@@ -38,7 +38,7 @@
 	<body>
 	<div class="fh5co-loader"></div>
 	<div id="page">
-<!--$$$$$$$$$$$$$$$$$$$$$$$$java左侧图片$$$$$$$$$$$$$$$$$$$$$$$$-->
+<!--$$$$$$$$$$$$$$$$$$$$$$$$linux左侧配图片$$$$$$$$$$$$$$$$$$$$$$$$-->
 		<div id="fh5co-aside" style="background-image: url(images/linux1.jpg)">
 			<div class="overlay"></div>
 			<nav role="navigation">
@@ -50,7 +50,7 @@
 <!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
 			<span class="fh5co-post-date">2018年4月8日19:29:11</span>
 <!--$$$$$$$$$$$$$$$$$$$$$$$$标题$$$$$$$$$$$$$$$$$$$$$$$$-->
-			<h2>linux符号命令总结</a></h2>
+			<h2>linux标题</a></h2>
 			</div>
 		</div>
 		<div id="fh5co-main-content">
