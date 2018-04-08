@@ -46,7 +46,7 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
-		<!--$$$$$$$$$ͼƬ$$$$$$$$$$$$-->
+		<!--$$$$$$$$$图片$$$$$$$$$$$$-->
 		<div id="fh5co-aside" style="background-image: url(images/java1.jpg)">
 			<div class="overlay"></div>
 			<nav role="navigation">
@@ -55,41 +55,41 @@
 				</ul>
 			</nav>
 			<div class="featured">
-				<span class="fh5co-post-date">2018��4��8��19:29:11</span>
-				<!--$$$$$$$$$����$$$$$$$$$$$$-->
-				<h2>JDK1.5-JDK10 ��װָ��(windows)</a></h2>
+				<span class="fh5co-post-date">2018年4月8日19:29:11</span>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>JDK1.5-JDK10 安装指南(windows)</a></h2>
 			</div>
 		</div>
 		<div id="fh5co-main-content">
 			<div class="fh5co-post"> 
 				<div class="fh5co-entry padding">
-					<img src="images/java.jpg" alt="java���">
+					<img src="images/java.jpg" alt="java相关">
 					<div>
-						<!--$$$$$$$$$$$$begin ��html����$$$$$$$$$$$$$$$$$$$-->
-						<p>�Դ�jdk9�汾��JDK��Ŀ¼�ṹ�ͷ����仯��ȥ��ԭ�е�jreĿ¼��������JDK9��Ϊ�ֽ��ߣ��ֱ�JDK9�汾ǰ�����ã���JDK9�汾������á�����װ����ʡ�ԣ�</p>
-<p>(�ⲿ��������ʵ���˸о���Ϊ���ʼĳЩ�ı�׼)</p>
+						<!--$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$-->
+						<p>自从jdk9版本后，JDK的目录结构就发生变化，去除原有的jre目录。下面以JDK9作为分界线，分别JDK9版本前的配置，和JDK9版本后的配置。（安装过程省略）</p>
+<p>(这部分配置其实个人感觉是为了最开始某些的标准)</p>
 <ul>
-<li>��������
-�����--&gt;����--&gt;�߼�ϵͳ����--&gt;�߼�--&gt;��������</li>
-<li>JDK9�Ժ�汾��9-10��</li>
+<li>公共部分
+计算机--&gt;属性--&gt;高级系统设置--&gt;高级--&gt;环境变量</li>
+<li>JDK9以后版本（9-10）</li>
 </ul>
 <pre class="editor-colors lang-JAVA_HOME"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>D:\Java\jdk-10</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>JRE_HOME</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>D:\Java\jre10</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>PATH</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>.;%JAVA_HOME%\bin;%JRE_HOME%\bin</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>CLASSPATH</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>.;%JAVA_HOME%\lib;%JRE_HOME%\lib</span></span></div></pre>
 <ul>
-<li>JDK9��ǰ�汾��1.5-1.8��</li>
+<li>JDK9以前版本（1.5-1.8）</li>
 </ul>
 <pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>JAVA_HOME</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>D:\Java\jdk1.7.0_51</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>PATH</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>.;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>CLASSPATH</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</span></span></div></pre><hr>
-<p>���˾���classpath��ʵ�ǲ������õģ��������ԣ�����û����
-������Ҫ���������ˣ�jdk6�Ժ�İ汾����������CLASSPATH������Ҳ������ȥ�䡣
-������java��װ��һ������������Ҫ���ã�ֻ����Ϊ�����������������㣬����ͨ�����jdk/binĿ¼�¼��뵽path�����С�JAVA_HOME���������������һЩ����java�����Ĺ��߻��õ�������tomcat,groovy,vertx.....�����������������������Ҳ�������ˡ�
-����ͨ��Ϊ�˷����Ժ���java������С���ߣ�һ�㶼������JAVA_HOME��Ȼ���$JAVA_HOME/bin׷�ӵ�PATH�С�</p>
-<!--end ��html����-->
+<p>个人觉得classpath其实是不用配置的，经过测试，环境没问题
+引“不要被旧书误导了，jdk6以后的版本都不用再配CLASSPATH，而且也不建议去配。
+理论上java安装完一个变量都不需要配置，只不过为了命令行敲起来方便，所以通常会把jdk/bin目录下加入到path变量中。JAVA_HOME这个变量的作用是一些基于java开发的工具会用到，比如tomcat,groovy,vertx.....，如果不用这个工具这个变量也可以免了。
+不过通常为了方便以后用java开发的小工具，一般都会设置JAVA_HOME，然后把$JAVA_HOME/bin追加到PATH中”</p>
+<!--end 贴html代码-->
 					</div>
 				</div>
 
 				
 				<footer>
 					<div>
-					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">����è��ַ-NopSmile</a>
+					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
 					</div>
 				</footer>
 			</div>
