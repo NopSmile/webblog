@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NopSmile's BLOG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	 <link rel="shortcut icon" href="../images/favicon.ico"/>
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$-->
+		<div id="fh5co-aside" style="background-image: url(../images/pageall.jpg)">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$$-->
+			<div class="overlay"></div>
+			<nav role="navigation">
+				<ul>
+					<li><a href="zlinuxall.html"><i class="icon-arrow-left"></i></a></li>
+				</ul>
+			</nav>
+			<div class="featured">
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<span class="fh5co-post-date">2018年4月9日10:30:48</span>
+				<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>centos系统基础网络配置</h2>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+			</div>
+		</div>
+		<div id="fh5co-main-content">
+			<div class="fh5co-post"> 
+				<div class="fh5co-entry padding">
+					<img src="../images/linux.jpg" alt="linux相关">
+					<div>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+			    <h1>修改主机名：</h1>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>hostname zhujiming</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>logout</span></span></span>
+</pre>
+<p>当前shell重新登陆即可生效，重启失效。</p>
+<h2>永久方法：</h2>
+<ul>
+<li>步骤一：</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>vi /etc/sysconfig/network</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NETWORKING=yes</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>HOSTNAME=zhujiming</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>#保存退出</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>提示：这里改完后，执行/etc/init.d/network restart 或 source /etc/sysconfig/network 等做法都不生效，如果要单一的修改这个文件可能就需要重启服务器。</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@samle ~]# reboot</span></span></span>
+</pre>
+<ul>
+<li>步骤二：</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>然后通过命令行继续修改：hostname zhujiming，完成后退出重新登陆即可生效</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>提示：这样就能保证临时生效，重启系统也生效了</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>也要修改/etc/hosts 里面对应的主机名也要改下</span></span></span>
+</pre>
+<h2>工作中，修改主机名(常用步骤)；</h2>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>hostname zhujiming</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>vi /etc/syconfig/network</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>vi /etc/hosts</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>网络服务慢，一般就是host dns有问题</span></span></span>
+</pre>
+<hr>
+<h1>网卡的配置文件说明</h1>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@samle ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DEVICE=eth0 #这里是网卡名称第一网卡为eth0，第二块为eth1……</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>BOOTPROTO=none #是不是要静态的地址</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>HWADDR=00:0c:29:f2:d7:f1 #这里mac地址，不同的机器不能重复，尤其是在克隆虚拟机或复制网卡的配置时要注意</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NM_CONTROLLED=yes</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ONBOOT=yes #开机网卡自启动</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>TYPE=Ethernet #网络类型</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DNS1=192.168.1.1 #DNS</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>USERCTL=no</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>IPV6INIT=no</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>IPADDR=192.168.0.120 #ip地址</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NETMASK=255.255.255.0 #子网掩码</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DNS2=8.8.8.8 #DNS</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>GATEWAY=192.168.0.1 #网关</span></span></span>
+</pre>
+<h1>配置修改IP地址</h1>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>1） setup网络配置，然后修改。</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>2） [root@samle ~]# vi /etc/sysconfig/network-scripts/ifcfg-eth0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DEVICE=eth0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>BOOTPROTO=none</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>HWADDR=00:0c:29:f2:d7:f1</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NM_CONTROLLED=yes</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ONBOOT=yes</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>TYPE=Ethernet</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DNS1=192.168.1.1</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>USERCTL=no</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>IPV6INIT=no</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>IPADDR=192.168.0.120</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NETMASK=255.255.255.0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>DNS2=8.8.8.8</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>GATEWAY=192.168.0.1</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@samle ~]# /etc/init.d/network restart</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ifup eth0 #激活网卡</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>ifdown eth0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Ifconfig</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>添加两个ip地址： ifconfig eth0:0 10.1.21.251 netmask 255.255.255.0 up</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>这样的别名去掉就是 ifconfig eth0:0 down</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@samle ~]# vi /etc/sysctl.conf</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>net.ipv4.icmp_echo_ignore_all = 0 #禁止ping操作，如果是1则是禁止，0是允许</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>修改完成后执行 sysctl -p 使新配置生效（重要）。</span></span></span>
+</pre>
+<hr>
+<h1>配置DNS</h1>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>cat /etc/resolv.conf</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@samle ~]# cat /etc/resolv.conf</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>; generated by /sbin/dhclient-script</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>search localdomain</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>nameserver 192.168.1.1</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>nameserver 8.8.8.8</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<hr>
+<h1>配置默认网关</h1>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>第一生效文件</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>grep –i gate /etc/sysconfig/network-scripts/ifcfg-eth0</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>#GATEWAY=10.1.1.1</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>第二生效文件(后续系统有可能已经整合到第一生效文件中了)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>grep –i gate /etc/sysconfig/network</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>GATEWAY=10.2.2.2</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>临时生效</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>route add default gw 10.0..0.3</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>dig www.baiud.com 查看dns的</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>查看解析：nslookup www.baidu.com</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>tracert -d wwwBaidu.com （windows下）</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>traceroute www.baidu.com （linux下）</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<h1>常见排错思路</h1>
+<p>如果win32和linux服务器无法连接网络，分别描述排查方法？
+提示：基本检查思路：</p>
+<p>物理链路是否畅通
+本机ip，路由，dns的设置情况是否达标
+测试到网关或路由器的通畅情况，先测网关然后在测路由器一级一级的测试
+测试ping公网ip的通畅情况（平时要记几个外部ip）
+测试DNS的通畅，可以ping baidu.com看是否出对应ip
+根据每级的结果来排查，如果是系统管理员，以上问题都检查了后，还可以在网关路由逐级排查。</p>			
+<!--$$$$$$$$$$$$$$$$$$$$$$$$end 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+					</div>
+				</div>
+
+				
+				<footer>
+					<div>
+					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+
+	</body>
+</html>
+
