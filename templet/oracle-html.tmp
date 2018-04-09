@@ -32,7 +32,7 @@
 	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="../js/respond.min.js"></script>
+	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<link rel="shortcut icon" href="../images/favicon.ico"/>
 	</head>
@@ -41,17 +41,20 @@
 	<div id="page">
 <!--$$$$$$$$$$$$$$$$$$$$$$$$oracle左侧配图图片$$$$$$$$$$$$$$$$$$$$$$$$-->
 		<div id="fh5co-aside" style="background-image: url(../images/oracle1.jpg)">
+<!--$$$$$$$$$$$$$$$$$$$$$$$$oracle左侧配图图片$$$$$$$$$$$$$$$$$$$$$$$$-->
 			<div class="overlay"></div>
 			<nav role="navigation">
 				<ul>
-					<li><a href="../index.html"><i class="icon-home"></i></a></li>
+					<li><a href="zoracleall.html"><i class="icon-arrow-left"></i></a></li>
 				</ul>
 			</nav>
 			<div class="featured">
 <!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
-			<span class="fh5co-post-date">2018年4月8日19:29:11</span>
+			<span class="fh5co-post-date">2018年4月8日19:59:18</span>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
 <!--$$$$$$$$$$$$$$$$$$$$$$$$标题$$$$$$$$$$$$$$$$$$$$$$$$-->
 			<h2>ORACLE标题</h2>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$标题$$$$$$$$$$$$$$$$$$$$$$$$-->
 			</div>
 		</div>
 		<div id="fh5co-main-content">
