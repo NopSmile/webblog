@@ -8,8 +8,10 @@
 	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="freehtml5.co" />
+
 	
-  <!-- Facebook and Twitter integration -->
+
+  	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -20,38 +22,47 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
+	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="../css/icomoon.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="../css/bootstrap.css">
+	
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="../css/style.css">
+
 	<!-- Modernizr JS -->
 	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
-	<script src="../js/respond.min.js"></script>
+	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	<link rel="shortcut icon" href="../images/favicon.ico"/>
+	 <link rel="shortcut icon" href="../images/favicon.ico"/>
 	</head>
 	<body>
+		
 	<div class="fh5co-loader"></div>
+	
 	<div id="page">
-<!--$$$$$$$$$$$$$$$$$$$$$$$$linux左侧配图片$$$$$$$$$$$$$$$$$$$$$$$$-->
-		<div id="fh5co-aside" style="background-image: url(../images/linux1.jpg)">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$-->
+		<div id="fh5co-aside" style="background-image: url(../images/image_2.jpg)">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$$-->
 			<div class="overlay"></div>
 			<nav role="navigation">
 				<ul>
-					<li><a href="../index.html"><i class="icon-home"></i></a></li>
+					<li><a href="zlinuxall.html"><i class="icon-arrow-left"></i></a></li>
 				</ul>
 			</nav>
 			<div class="featured">
-<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
-			<span class="fh5co-post-date">2018年4月8日19:29:11</span>
-<!--$$$$$$$$$$$$$$$$$$$$$$$$标题$$$$$$$$$$$$$$$$$$$$$$$$-->
-			<h2>linux标题</h2>
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<span class="fh5co-post-date">2018年4月8日15:03:32</span>
+				<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>linux标题</h2>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
 			</div>
 		</div>
 		<div id="fh5co-main-content">
@@ -60,10 +71,12 @@
 					<img src="../images/linux.jpg" alt="linux相关">
 					<div>
 <!--$$$$$$$$$$$$$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
-
+						
 <!--$$$$$$$$$$$$$$$$$$$$$$$$end 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
 					</div>
 				</div>
+
+				
 				<footer>
 					<div>
 					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
@@ -92,3 +105,4 @@
 
 	</body>
 </html>
+
