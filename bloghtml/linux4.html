@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NopSmile's BLOG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	 <link rel="shortcut icon" href="../images/favicon.ico"/>
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$-->
+		<div id="fh5co-aside" style="background-image: url(../images/linux4_img1.jpg)">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$$-->
+			<div class="overlay"></div>
+			<nav role="navigation">
+				<ul>
+					<li><a href="zlinuxall.html"><i class="icon-arrow-left"></i></a></li>
+				</ul>
+			</nav>
+			<div class="featured">
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<span class="fh5co-post-date">2018年4月9日11:03:32</span>
+				<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>搭建NFS网络文件共享服务</h2>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+			</div>
+		</div>
+		<div id="fh5co-main-content">
+			<div class="fh5co-post"> 
+				<div class="fh5co-entry padding">
+					<img src="../images/linux.jpg" alt="linux相关">
+					<div>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+					    <h2>先上干货：</h2>
+<p>以下是配置全过程（客户端和服务端对比）
+查看NFS软件包</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# rpm -aq nfs-utils portmap rpcbind#这个命令比（yum grouplist）的更有效率</span></span></span>
+</pre>
+<ul>
+<li>安装</li>
+</ul>
+<ol>
+<li>法一：[root@server ~]#yum groupinstall “NFS file server”
+也可以使用</li>
+<li>法二：[root@server ~]# yum install nfs-utils rpcbind -y来安装</li>
+</ol>
+<p>客户端与服务端软件对比</p>
+<ul>
+<li>客户端</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# rpm -aq nfs-utils portmap rpcbind</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span> rpcbind-0.2.0-13.el6_9.1.x86_64      </span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span> nfs-utils-1.2.3-75.el6.x86_64  </span></span></span>
+</pre>
+<ul>
+<li>服务端</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# rpm -aq nfs-utils portmap rpcbind</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpcbind-0.2.0-13.el6_9.1.x86_64</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>nfs-utils-1.2.3-75.el6.x86_64</span></span></span>
+</pre>
+<ul>
+<li>客户端</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# /etc/init.d/rpcbind start</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting rpcbind:                                          [  OK  ]   </span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# chkconfig  rpcbind on</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# chkconfig --list rpcbind</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpcbind         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span></span></span>
+</pre>
+<ul>
+<li>服务端</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# /etc/init.d/rpcbind start</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting rpcbind:                                          [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# ps -ef |grep rpc</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpc       2959     1  0 12:24 ?        00:00:00 rpcbind</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>root      2966  1375  0 12:25 pts/1    00:00:00 grep --color=auto rpc</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# /etc/init.d/rpcbind status</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpcbind (pid  2959) is running...</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# rpcinfo -p localhost</span></span></span>
+<span class="syntax--text syntax--plain"><span>     </span><span class="syntax--meta syntax--paragraph syntax--text"><span>program vers proto   port  service</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    4   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    3   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    2   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    4   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    3   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    2   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# /etc/init.d/nfs start</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting NFS services:                                     [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting NFS quotas:                                       [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting NFS mountd:                                       [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting NFS daemon:                                       [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Starting RPC idmapd:                                       [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# rpcinfo -p localhost     </span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>program vers proto   port  service</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    4   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    3   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    2   tcp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    4   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    3   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100000    2   udp    111  portmapper</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100011    1   udp    875  rquotad</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100011    2   udp    875  rquotad</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100011    1   tcp    875  rquotad</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100011    2   tcp    875  rquotad</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    1   udp  62211  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    1   tcp  16172  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    2   udp  37947  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    2   tcp  13732  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    3   udp  46640  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100005    3   tcp  38829  mountd</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    2   tcp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    3   tcp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    4   tcp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100227    2   tcp   2049  nfs_acl</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100227    3   tcp   2049  nfs_acl</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    2   udp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    3   udp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100003    4   udp   2049  nfs</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100227    2   udp   2049  nfs_acl</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100227    3   udp   2049  nfs_acl</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    1   udp  39990  nlockmgr</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    3   udp  39990  nlockmgr</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    4   udp  39990  nlockmgr</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    1   tcp   4795  nlockmgr</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    3   tcp   4795  nlockmgr</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>100021    4   tcp   4795  nlockmgr</span></span></span>
+</pre>
+<p>（如果 rpc服务没开的情况下）</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# /etc/init.d/rpcbind stop #模拟关闭</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Stopping rpcbind:                                          [  OK  ]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# rpcinfo -p localhost    #则会报错</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpcinfo: can't contact portmapper: RPC: Remote system error - Connection refused</span></span></span>
+</pre>
+<p>服务端打开之后，开机自启动设置；</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# chkconfig nfs on</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# chkconfig rpcbind on</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# chkconfig --list nfs #检查</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>nfs             0:off   1:off   2:on    3:on    4:on    5:on    6:off</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# chkconfig --list rpcbind #检查</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>rpcbind         0:off   1:off   2:on    3:on    4:on    5:on    6:off</span></span></span>
+</pre>
+<p>至此，已经完成基本服务的搭建了。</p>
+<hr>
+<h2>服务端NFS配置文件</h2>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# mkdir /data</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server ~]# ll /etc/exports</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-rw-r--r--. 1 root root 0 Jan 12  2010 /etc/exports</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server /]# cat /etc/exports</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>####nfs data by nopsmile ####</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/data 172.16.30.0/24(rw,sync)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server /]# /etc/init.d/nfs reload</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server /]# showmount -e localhost</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Export list for localhost:</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/data 172.16.30.0/24</span></span></span>
+</pre>
+<hr>
+<h2>客户端</h2>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# showmount -e 172.16.30.190</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Export list for 172.16.30.190:</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/data 172.16.30.0/24</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# mount -t nfs 172.16.30.190:/data /mnt</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@client ~]# df -h</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Filesystem            Size  Used Avail Use% Mounted on</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/dev/sda3             8.7G  1.5G  6.8G  18% /</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>tmpfs                 497M     0  497M   0% /dev/shm</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/dev/sda1             194M   28M  157M  15% /boot</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>172.16.30.190:/data   8.7G  1.5G  6.8G  18% /mnt</span></span></span>
+</pre>
+<p>如果永久生效 rc.local fstab里面</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[root@server /]# cat /var/lib/nfs/etab</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>/data   172.16.30.0/24(rw,sync,wdelay,hide,nocrossmnt,secure,root_squash,no_all_squash,no_subtree_check,secure_locks,acl,anonuid=65534,anongid=65534,sec=sys,rw,root_squash,no_all_squash)</span></span></span>
+</pre>
+<p>以上配置完成。</p>
+<hr>
+<h2>概念补充</h2>
+<p>NFS网络文件系统的使用很像windows系统的网络共享、安全功能、网络驱动器映射,这也和linux里的samba服务类似。它是基于RPC协议/服务。
+NFS的RPC服务最主要的功能就是记录每个NFS功能所对应的端口号，并且在NFS客户端请求时将该端口和功能对应的信息传递给请求数据的NFS客户端，从而可以确保客户端可以连接到正确的NFS端口上去，达到实现数据传输交互数据目的。</p>
+<p><img src="..\images\linux4_part1.png?v=1523243139937" alt="" title="linux4_part1.png"></p>
+<p>搭建NFS网络文件共享服务（干货）</p>
+<p>要部署NFS服务，需要安装下面的软件包:</p>
+<ul>
+<li>nfs-utils:这个NFS服务主程序。（包括rpc.nfsa、rpc.mountd两个daemons和相关文档说明及执行命令文件等。）</li>
+<li>portmap:Centos5.X下面RPC的主程序(Centos6.X下名字为rpcbind)
+NFS可以被视为一个RPC程序，在启动任何一个RPC程序之前，需要做好端口和功能的对应映射工作，这个映射工作就是由portmap(或rpcbind)服务来完成的。因此,在提供NFS服务之前必须先启动portmap(Centos6.4下为rpcbind)服务。</li>
+</ul>
+<hr>
+<h2>exports配置</h2>
+<p>/etc/exports文件配置格式为：</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NFS共享目录 NFS客户端地址1(参1，参2……) NFS客户端地址2(参1，参2……)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>NFS共享目录 NFS客户端地址1(参1，参2……)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>EXAMPLE</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span># sample /etc/exports file</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   /               master(rw) trusty(rw,no_root_squash)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   /projects       proj*.local.domain(rw)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   /usr            *.local.domain(ro) @trusted(rw)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   /home/joe       pc001(rw,all_squash,anonuid=150,anongid=100)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   /pub            *(ro,insecure,all_squash)</span></span></span>
+</pre>
+<p>其中上述各个列参数含义如下：</p>
+<ol>
+<li>NFS共享目录：为NFS服务端要共享的实际目录，要用绝对路径。如（/data/bbs）
+注意项目的本地权限，如果需要读写共享，一定要让本地目录被NFS客户端的用户（nfsnobody）可以读写</li>
+<li>NFS 客户端地址:为NFS 服务端授权的可访问共享目录的NFS 客户端地址，
+可以为单独的IP 地址或主机名、域名等，也可以为整个网段地址，还可以用“*”来匹所有客户端服务器可以访问，这里所谓的客户端一般来说是前端的业务服务器，例如:web 服务。如下：</li>
+</ol>
+<ul>
+<li>例子1：授权单一客户端访问NFS–&gt;10.0.0.30(一般情况下，生产环境中此配置不多)</li>
+<li>例子2：授权整个网段可访问NFS–&gt;10.0.0.0/24(其中24等同于255.255.255.0 制定网段为生产换种最常见的配置，配置简单，维护方便)</li>
+<li>例子3：授权整个网段访问NFS–&gt;10.0.0.*(制定网段的另外写法（需要验证）)</li>
+<li>例子4：授权某个域名客户端访问NFS–&gt;<a href="http://Nfs.test.cc">Nfs.test.cc</a>(此方法生产环境一般不常用)</li>
+<li>例子5：授权某个域名客户端访问NFS–&gt;*.test.cc(此方法生产环境一般不常用)</li>
+</ul>
+<ol start="3">
+<li>rw(表示可读写权限)、ro(表示只读权限)、sync(请求或写入数据时，数据同步写入到NFSserver的硬盘后才会返回)、async、all_squash(在多个NFS客户端同时读写NFSserver数据时，这个参数很有用)、anonuid(参数以anon*开头指匿名用户，通常为nobody或nfsnobody的UID值；自己设定UID必须在/etc/passwd中，在多个NFS Clients时，如国泰webserver共享一个NFS目录时，通过这个参数，使得不同NFS Client写入数据有相同的权限。即为配置匿名UID)、anongid(跟上面UID换成了GID)</li>
+</ol>
+<h3>配NFS生产重要技巧：</h3>
+<ol>
+<li>确保所有服务器对NFS共享目录具备相同的权限
+all_squash把所有客户端都压缩成匿名用户。
+就是anonuid，anongid指定的uig和gid用户。</li>
+<li>所有的客户端和服务端都需要有一个相同的uid和gid用户，即nfsnobody（uid必须相同）</li>
+</ol>
+<h3>NFS的优点:</h3>
+<ol>
+<li>简单 容易上手，容易掌握，数据是在文件系统之上。</li>
+<li>方便 部署快速，维护简单</li>
+<li>可靠 从软件层面上看，数据可靠性高，经久耐用，数据是在文件系统之上。</li>
+<li>稳定</li>
+</ol>
+<h3>NFS的局限</h3>
+<ol>
+<li>局限性是存在单点故障，如果nfs宕机了所有客户端都将不可用、</li>
+<li>在高并发的场合，NFS效率\性能有限（一般几千万以下pV的网站不是瓶颈，除非网站架构太差，2千万pv/r日）</li>
+<li>客户端认证时基于ip和主机名的，安全性一般（用于内网则问题不大）</li>
+<li>NFS数据是明文的，对数据完整性不做验证。</li>
+<li>多台机器挂载NFS服务器时，连接管理维护麻烦，尤其NFS服务端出现问题，所有NFS客户端都挂掉状态（测试环境可使用autofs自动挂载解决）</li>
+</ol>
+ 	
+<!--$$$$$$$$$$$$$$$$$$$$$$$$end 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+					</div>
+				</div>
+
+				
+				<footer>
+					<div>
+					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+
+	</body>
+</html>
+
