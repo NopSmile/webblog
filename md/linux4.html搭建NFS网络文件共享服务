@@ -1,0 +1,221 @@
+##先上干货：
+
+以下是配置全过程（客户端和服务端对比）
+查看NFS软件包
+```
+[root@server ~]# rpm -aq nfs-utils portmap rpcbind#这个命令比（yum grouplist）的更有效率
+```
+
+* 安装
+1. 法一：[root@server ~]#yum groupinstall "NFS file server"
+也可以使用
+2. 法二：[root@server ~]# yum install nfs-utils rpcbind -y来安装
+
+客户端与服务端软件对比
+* 客户端
+```
+ [root@client ~]# rpm -aq nfs-utils portmap rpcbind
+ rpcbind-0.2.0-13.el6_9.1.x86_64      
+ nfs-utils-1.2.3-75.el6.x86_64  
+ ```
+
+* 服务端
+```
+[root@server ~]# rpm -aq nfs-utils portmap rpcbind
+rpcbind-0.2.0-13.el6_9.1.x86_64
+nfs-utils-1.2.3-75.el6.x86_64
+```
+
+* 客户端
+```
+[root@client ~]# /etc/init.d/rpcbind start
+Starting rpcbind:                                          [  OK  ]   
+[root@client ~]# chkconfig  rpcbind on
+[root@client ~]# chkconfig --list rpcbind
+rpcbind         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+```
+
+* 服务端
+```
+[root@server ~]# /etc/init.d/rpcbind start
+Starting rpcbind:                                          [  OK  ]
+[root@server ~]# ps -ef |grep rpc
+rpc       2959     1  0 12:24 ?        00:00:00 rpcbind
+root      2966  1375  0 12:25 pts/1    00:00:00 grep --color=auto rpc
+[root@server ~]# /etc/init.d/rpcbind status
+rpcbind (pid  2959) is running...
+
+[root@server ~]# rpcinfo -p localhost
+     program vers proto   port  service
+100000    4   tcp    111  portmapper
+100000    3   tcp    111  portmapper
+100000    2   tcp    111  portmapper
+100000    4   udp    111  portmapper
+100000    3   udp    111  portmapper
+100000    2   udp    111  portmapper
+[root@server ~]# /etc/init.d/nfs start
+Starting NFS services:                                     [  OK  ]
+Starting NFS quotas:                                       [  OK  ]
+Starting NFS mountd:                                       [  OK  ]
+Starting NFS daemon:                                       [  OK  ]
+Starting RPC idmapd:                                       [  OK  ]
+[root@server ~]# rpcinfo -p localhost     
+ program vers proto   port  service
+100000    4   tcp    111  portmapper
+100000    3   tcp    111  portmapper
+100000    2   tcp    111  portmapper
+100000    4   udp    111  portmapper
+100000    3   udp    111  portmapper
+100000    2   udp    111  portmapper
+100011    1   udp    875  rquotad
+100011    2   udp    875  rquotad
+100011    1   tcp    875  rquotad
+100011    2   tcp    875  rquotad
+100005    1   udp  62211  mountd
+100005    1   tcp  16172  mountd
+100005    2   udp  37947  mountd
+100005    2   tcp  13732  mountd
+100005    3   udp  46640  mountd
+100005    3   tcp  38829  mountd
+100003    2   tcp   2049  nfs
+100003    3   tcp   2049  nfs
+100003    4   tcp   2049  nfs
+100227    2   tcp   2049  nfs_acl
+100227    3   tcp   2049  nfs_acl
+100003    2   udp   2049  nfs
+100003    3   udp   2049  nfs
+100003    4   udp   2049  nfs
+100227    2   udp   2049  nfs_acl
+100227    3   udp   2049  nfs_acl
+100021    1   udp  39990  nlockmgr
+100021    3   udp  39990  nlockmgr
+100021    4   udp  39990  nlockmgr
+100021    1   tcp   4795  nlockmgr
+100021    3   tcp   4795  nlockmgr
+100021    4   tcp   4795  nlockmgr
+```
+（如果 rpc服务没开的情况下）
+```
+[root@server ~]# /etc/init.d/rpcbind stop #模拟关闭
+Stopping rpcbind:                                          [  OK  ]
+[root@server ~]# rpcinfo -p localhost    #则会报错
+rpcinfo: can't contact portmapper: RPC: Remote system error - Connection refused
+```
+
+服务端打开之后，开机自启动设置；
+```
+[root@server ~]# chkconfig nfs on
+[root@server ~]# chkconfig rpcbind on
+[root@server ~]# chkconfig --list nfs #检查
+nfs             0:off   1:off   2:on    3:on    4:on    5:on    6:off
+[root@server ~]# chkconfig --list rpcbind #检查
+rpcbind         0:off   1:off   2:on    3:on    4:on    5:on    6:off
+```
+
+至此，已经完成基本服务的搭建了。
+
+-----
+
+##服务端NFS配置文件
+```
+[root@server ~]# mkdir /data
+[root@server ~]# ll /etc/exports
+-rw-r--r--. 1 root root 0 Jan 12  2010 /etc/exports
+[root@server /]# cat /etc/exports
+####nfs data by nopsmile ####
+/data 172.16.30.0/24(rw,sync)
+[root@server /]# /etc/init.d/nfs reload
+[root@server /]# showmount -e localhost
+Export list for localhost:
+/data 172.16.30.0/24
+```
+-----
+
+##  客户端
+```
+[root@client ~]# showmount -e 172.16.30.190
+Export list for 172.16.30.190:
+/data 172.16.30.0/24
+[root@client ~]# mount -t nfs 172.16.30.190:/data /mnt
+[root@client ~]# df -h
+Filesystem            Size  Used Avail Use% Mounted on
+/dev/sda3             8.7G  1.5G  6.8G  18% /
+tmpfs                 497M     0  497M   0% /dev/shm
+/dev/sda1             194M   28M  157M  15% /boot
+172.16.30.190:/data   8.7G  1.5G  6.8G  18% /mnt
+```
+
+如果永久生效 rc.local fstab里面
+```
+[root@server /]# cat /var/lib/nfs/etab
+/data   172.16.30.0/24(rw,sync,wdelay,hide,nocrossmnt,secure,root_squash,no_all_squash,no_subtree_check,secure_locks,acl,anonuid=65534,anongid=65534,sec=sys,rw,root_squash,no_all_squash)
+```
+
+以上配置完成。
+
+----
+
+## 概念补充
+
+NFS网络文件系统的使用很像windows系统的网络共享、安全功能、网络驱动器映射,这也和linux里的samba服务类似。它是基于RPC协议/服务。
+NFS的RPC服务最主要的功能就是记录每个NFS功能所对应的端口号，并且在NFS客户端请求时将该端口和功能对应的信息传递给请求数据的NFS客户端，从而可以确保客户端可以连接到正确的NFS端口上去，达到实现数据传输交互数据目的。
+
+![](../images/linux4_part1.png 'linux4_part1.png')
+
+搭建NFS网络文件共享服务（干货）
+
+要部署NFS服务，需要安装下面的软件包:
+
+* nfs-utils:这个NFS服务主程序。（包括rpc.nfsa、rpc.mountd两个daemons和相关文档说明及执行命令文件等。）
+* portmap:Centos5.X下面RPC的主程序(Centos6.X下名字为rpcbind)
+NFS可以被视为一个RPC程序，在启动任何一个RPC程序之前，需要做好端口和功能的对应映射工作，这个映射工作就是由portmap(或rpcbind)服务来完成的。因此,在提供NFS服务之前必须先启动portmap(Centos6.4下为rpcbind)服务。
+----
+
+##exports配置
+
+/etc/exports文件配置格式为：
+```
+NFS共享目录 NFS客户端地址1(参1，参2……) NFS客户端地址2(参1，参2……)
+NFS共享目录 NFS客户端地址1(参1，参2……)
+EXAMPLE
+   # sample /etc/exports file
+   /               master(rw) trusty(rw,no_root_squash)
+   /projects       proj*.local.domain(rw)
+   /usr            *.local.domain(ro) @trusted(rw)
+   /home/joe       pc001(rw,all_squash,anonuid=150,anongid=100)
+   /pub            *(ro,insecure,all_squash)
+   ```
+其中上述各个列参数含义如下：
+1. NFS共享目录：为NFS服务端要共享的实际目录，要用绝对路径。如（/data/bbs）
+注意项目的本地权限，如果需要读写共享，一定要让本地目录被NFS客户端的用户（nfsnobody）可以读写
+2. NFS 客户端地址:为NFS 服务端授权的可访问共享目录的NFS 客户端地址，
+可以为单独的IP 地址或主机名、域名等，也可以为整个网段地址，还可以用“*”来匹所有客户端服务器可以访问，这里所谓的客户端一般来说是前端的业务服务器，例如:web 服务。如下：
+
+* 例子1：授权单一客户端访问NFS-->10.0.0.30(一般情况下，生产环境中此配置不多)
+* 例子2：授权整个网段可访问NFS-->10.0.0.0/24(其中24等同于255.255.255.0 制定网段为生产换种最常见的配置，配置简单，维护方便)
+* 例子3：授权整个网段访问NFS-->10.0.0.*(制定网段的另外写法（需要验证）)
+* 例子4：授权某个域名客户端访问NFS-->Nfs.test.cc(此方法生产环境一般不常用)
+* 例子5：授权某个域名客户端访问NFS-->*.test.cc(此方法生产环境一般不常用)
+3. rw(表示可读写权限)、ro(表示只读权限)、sync(请求或写入数据时，数据同步写入到NFSserver的硬盘后才会返回)、async、all_squash(在多个NFS客户端同时读写NFSserver数据时，这个参数很有用)、anonuid(参数以anon*开头指匿名用户，通常为nobody或nfsnobody的UID值；自己设定UID必须在/etc/passwd中，在多个NFS Clients时，如国泰webserver共享一个NFS目录时，通过这个参数，使得不同NFS Client写入数据有相同的权限。即为配置匿名UID)、anongid(跟上面UID换成了GID)
+
+###配NFS生产重要技巧：
+
+1. 确保所有服务器对NFS共享目录具备相同的权限
+all_squash把所有客户端都压缩成匿名用户。
+就是anonuid，anongid指定的uig和gid用户。
+2. 所有的客户端和服务端都需要有一个相同的uid和gid用户，即nfsnobody（uid必须相同）
+
+###NFS的优点:
+
+1. 简单 容易上手，容易掌握，数据是在文件系统之上。
+2. 方便 部署快速，维护简单
+3. 可靠 从软件层面上看，数据可靠性高，经久耐用，数据是在文件系统之上。
+4. 稳定
+
+###NFS的局限
+
+1.  局限性是存在单点故障，如果nfs宕机了所有客户端都将不可用、
+2.  在高并发的场合，NFS效率\性能有限（一般几千万以下pV的网站不是瓶颈，除非网站架构太差，2千万pv/r日）
+3. 客户端认证时基于ip和主机名的，安全性一般（用于内网则问题不大）
+4. NFS数据是明文的，对数据完整性不做验证。
+5. 多台机器挂载NFS服务器时，连接管理维护麻烦，尤其NFS服务端出现问题，所有NFS客户端都挂掉状态（测试环境可使用autofs自动挂载解决）
