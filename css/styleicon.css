@@ -22,7 +22,7 @@
 #facebookIcon {background-position: -154px 0}
 #flickrIcon {background-position: -176px 0;}
 #favIcon {background-position: -198px 0;}
-#linkedinIcon {background-position: -220px 0;}
+#qqIcon {background-position: -220px 0;}
 
 #weixinIcon:hover {background-position: 0 -22px;}
 #weiboIcon:hover {background-position: -22px -22px;}
@@ -34,7 +34,7 @@
 #facebookIcon:hover {background-position: -154px -22px;}
 #flickrIcon:hover {background-position: -176px -22px;}
 #favIcon:hover {background-position: -198px -22px;}
-#linkedinIcon:hover {background-position: -220px -22px;}
+#qqIcon:hover {background-position: -220px -22px;}
 
 .weixin{ display:block;text-align:center; position:relative;}
 .weixin img{ display:none;}
