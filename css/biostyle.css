@@ -31,6 +31,9 @@ body {
 	height: 100%;
 	width: auto;
 }
+
+img {margin-left:30px;margin-right:30px; margin-top:-100px}
+
 #wrapper {max-width: 700px; margin: 60px auto 30px; padding:60px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.1); position: relative;}
 ul {margin: 0 0 0 15px; position: relative;}
 li {margin: 0 0 5px 0; font-size: 13px;}
