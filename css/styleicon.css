@@ -45,4 +45,4 @@
 	border: none;
 }
 .weixin img{ display:none;}
-.weixin:hover img{ position:relative; bottom:110px; margin-left:-75px;  display:block;}
+.weixin:hover img{ position:relative; bottom:100px; margin-left:-35px;  display:block;}
