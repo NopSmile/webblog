@@ -7,10 +7,10 @@
 
 例如添加新的分类流程如下：
 1. index.html id=fh5co-main-content 添加模块
-2. bloghtml文件夹下,添加z+分类名称+all.html的分类总页面
+2. bloghtml文件夹下,添加[z+分类名称+all.html]的分类总页面
 3. bloghtml文件夹下,添加自己内部链接的html
 
 ---------------以下维护补全-----------------------------
 
-4. templet文件夹下创建自己分类的固定模板
-5. md放markdown文件，images放图片文件
+4. templet文件夹下创建自己分类的固定模板(命名规则[tmp-类型.html])
+5. md放markdown文件，images放图片文件(命名规则[类型.md文章名字])
