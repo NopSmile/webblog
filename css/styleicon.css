@@ -12,7 +12,7 @@
 }
 .socialIcon:hover {border: none;}
 
-#weixinIcon {background-position: 0 0;}
+#wechatIcon {background-position: 0 0;}
 #weiboIcon {background-position: -22px 0;}
 #vimeoIcon {background-position: -44px 0;}
 #twitterIcon {background-position: -66px 0;}
@@ -24,7 +24,7 @@
 #favIcon {background-position: -198px 0;}
 #qqIcon {background-position: -220px 0;}
 
-#weixinIcon:hover {background-position: 0 -22px;}
+#wechatIcon:hover {background-position: 0 -22px;}
 #weiboIcon:hover {background-position: -22px -22px;}
 #vimeoIcon:hover {background-position: -44px -22px;}
 #twitterIcon:hover {background-position: -66px -22px;}
