@@ -12,8 +12,8 @@
 }
 .socialIcon:hover {border: none;}
 
-#rssIcon {background-position: 0 0;}
-#youTubeIcon {background-position: -22px 0;}
+#weixinIcon {background-position: 0 0;}
+#weiboIcon {background-position: -22px 0;}
 #vimeoIcon {background-position: -44px 0;}
 #twitterIcon {background-position: -66px 0;}
 #mySpaceIcon {background-position: -88px 0;}
@@ -24,8 +24,8 @@
 #favIcon {background-position: -198px 0;}
 #linkedinIcon {background-position: -220px 0;}
 
-#rssIcon:hover {background-position: 0 -22px;}
-#youTubeIcon:hover {background-position: -22px -22px;}
+#weixinIcon:hover {background-position: 0 -22px;}
+#weiboIcon:hover {background-position: -22px -22px;}
 #vimeoIcon:hover {background-position: -44px -22px;}
 #twitterIcon:hover {background-position: -66px -22px;}
 #mySpaceIcon:hover {background-position: -88px -22px;}
@@ -36,3 +36,6 @@
 #favIcon:hover {background-position: -198px -22px;}
 #linkedinIcon:hover {background-position: -220px -22px;}
 
+.weixin{ display:block;text-align:center; position:relative;}
+.weixin img{ display:none;}
+.weixin:hover img{ position:absolute;  top:0; margin-left:0px; padding-top:0px; display:block;}
