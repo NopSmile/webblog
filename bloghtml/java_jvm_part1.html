@@ -1,0 +1,288 @@
+	<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NopSmile's BLOG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	 <link rel="shortcut icon" href="../images/favicon.ico"/>
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$-->
+		<div id="fh5co-aside" style="background-image: url(../images/java1.jpg)">
+		<!--$$$$$$$$$左侧图片$$$$$$$$$$$$-->
+			<div class="overlay"></div>
+			<nav role="navigation">
+				<ul>
+					<li><a href="zjavaall.html"><i class="icon-arrow-left"></i></a></li>
+				</ul>
+			</nav>
+			<div class="featured">
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<span class="fh5co-post-date">2018年4月17日15:19:39</span>
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>JVM(java virtual machine)相关知识(part 1)</h2>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+			</div>
+		</div>
+		<div id="fh5co-main-content">
+			<div class="fh5co-post"> 
+				<div class="fh5co-entry padding">
+					<img src="../images/java.jpg" alt="java相关">
+					<div>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+						<h3>JVM(java virtual machine)相关知识(part 1)</h3>
+<ul>
+<li>
+<p>JVM启动流程
+<img src="..\images\jvm\java_jvm1.png?v=1523946064550" alt="" title="java_jvm1.png"></p>
+</li>
+<li>
+<p>JVM基本结构
+<img src="..\images\jvm\java_jvm2.png?v=1523946064551" alt="" title="java_jvm2.png"></p>
+</li>
+</ul>
+<h5>方法区</h5>
+<ul>
+<li>
+<h6>保存装载的类信息</h6>
+<p>类型的常量池</p>
+<p>字段，方法信息</p>
+<p>方法字节码</p>
+</li>
+<li>
+<h6>通常和永久区(Perm)关联在一起</h6>
+</li>
+</ul>
+<h5>java堆</h5>
+<p>和程序开发密切相关</p>
+<p>应用系统对象都保存在Java堆中</p>
+<p>所有线程共享Java堆</p>
+<p>对分代GC来说，堆也是分代的</p>
+<p>GC的主要工作区间</p>
+<p><img src="..\images\jvm\java_jvm3.png?v=1523946064552" alt="" title="java_jvm3.png"></p>
+<h5>java栈</h5>
+<p>线程私有</p>
+<p>栈由一系列帧组成（因此Java栈也叫做帧栈）</p>
+<p>帧保存一个方法的局部变量、操作数栈、常量池指针</p>
+<p>每一次方法调用创建一个帧，并压栈</p>
+<ul>
+<li>局部变量表（包含参数和局部变量）</li>
+</ul>
+<p><img src="..\images\jvm\java_jvm4.png?v=1523946064552" alt="" title="java_jvm4.png">
+注意：一个实例方法 第一个单元放this</p>
+<ul>
+<li>函数调用组成帧</li>
+</ul>
+<p>例如：下面递归函数（最后结果应该是内存溢出）
+<img src="..\images\jvm\java_jvm5.png?v=1523946064553" alt="" title="java_jvm5.png"></p>
+<ul>
+<li>
+<p>操作数栈(javap -verbose class)
+<img src="..\images\jvm\java_jvm6.png?v=1523946064553" alt="" title="java_jvm6.png"></p>
+</li>
+<li>
+<p>栈上分配
+<img src="..\images\jvm\java_jvm7.png?v=1523946064553" alt="" title="java_jvm7.png"></p>
+</li>
+</ul>
+<p><img src="..\images\jvm\java_jvm8.png?v=1523946064554" alt="" title="java_jvm8.png"></p>
+<p>小对象（一般几十个bytes），在没有逃逸的情况下，可以直接分配在栈上</p>
+<p>直接分配在栈上，可以自动回收，减轻GC压力</p>
+<p>大对象或者逃逸对象无法栈上分配</p>
+<ul>
+<li>
+<p>栈、堆、方法区交互
+<img src="..\images\jvm\java_jvm9.png?v=1523946064554" alt="" title="java_jvm9.png"></p>
+</li>
+<li>
+<p>内存模型</p>
+<p>每一个线程有一个工作内存和主存独立</p>
+<p>工作内存存放主存中变量的值的拷贝
+<img src="..\images\jvm\java_jvm10.png?v=1523947041850" alt="" title="java_jvm10.png"></p>
+<p><img src="..\images\jvm\java_jvm11.png?v=1523947166928" alt="" title="java_jvm11.png"></p>
+<ul>
+<li>volatile</li>
+</ul>
+</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public class VolatileStopThread extends Thread{</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>private volatile boolean stop = false;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public void stopMe(){</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>stop=true;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public void run(){</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>int i=0;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>while(!stop){</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>i++;</span></span></span>
+<span class="syntax--text syntax--plain"><span>             </span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span>           </span><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println("Stop thread");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String args[]) throws InterruptedException{</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>VolatileStopThread t=new VolatileStopThread();</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>t.start();</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Thread.sleep(1000);</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>t.stopMe();</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Thread.sleep(1000);</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>结果：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>没有volatile -server 运行 无法停止</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>------------------------------------</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>volatile 不能代替锁</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>一般认为volatile 比锁性能好（不绝对）</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>选择使用volatile的条件是：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>语义是否满足应用</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<ul>
+<li>可见性</li>
+</ul>
+<p>一个线程修改了变量，其他线程可以立即知道</p>
+<ul>
+<li>
+<p>保证可见性的方法</p>
+<p>volatile</p>
+<p>synchronized （unlock之前，写变量值回主存）</p>
+<p>final(一旦初始化完成，其他线程就可见)</p>
+</li>
+<li>
+<p>有序性</p>
+<p>在本线程内，操作都是有序的</p>
+<p>在线程外观察，操作都是无序的。（指令重排 或 主内存同步延时）</p>
+</li>
+<li>
+<p>指令重排</p>
+<h6>线程内串行语义</h6>
+<ul>
+<li>写后读	a = 1;b = a;	写一个变量之后，再读这个位置。</li>
+<li>写后写	a = 1;a = 2;	写一个变量之后，再写这个变量。</li>
+<li>读后写	a = b;b = 1;	读一个变量之后，再写这个变量。</li>
+<li>以上语句不可重排</li>
+<li>编译器不考虑多线程间的语义</li>
+<li>可重排： a=1;b=2;</li>
+</ul>
+</li>
+<li>
+<p>指令重排 – 破坏线程间的有序性
+<img src="..\images\jvm\java_jvm12.png?v=1523948251973" alt="" title="java_jvm12.png"></p>
+</li>
+<li>
+<p>指令重排 – 保证有序性的方法(synchronized)
+<img src="..\images\jvm\java_jvm13.png?v=1523948534308" alt="" title="java_jvm13.png"></p>
+</li>
+<li>
+<p>指令重排的基本原则</p>
+<ul>
+<li>序顺序原则：一个线程内保证语义的串行性</li>
+<li>volatile规则：volatile变量的写，先发生于读</li>
+<li>锁规则：解锁(unlock)必然发生在随后的加锁(lock)前</li>
+<li>传递性：A先于B，B先于C 那么A必然先于C</li>
+<li>线程的start方法先于它的每一个动作</li>
+<li>线程的所有操作先于线程的终结（Thread.join()）</li>
+<li>线程的中断（interrupt()）先于被中断线程的代码</li>
+<li>对象的构造函数执行结束先于finalize()方法</li>
+</ul>
+</li>
+<li>
+<p>解释运行</p>
+<ul>
+<li>解释执行以解释方式运行字节码</li>
+<li>解释执行的意思是：读一句执行一句</li>
+</ul>
+</li>
+<li>
+<p>编译运行（JIT）</p>
+<ul>
+<li>将字节码编译成机器码</li>
+<li>直接执行机器码</li>
+<li>运行时编译</li>
+<li>编译后性能有数量级的提升</li>
+</ul>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>JVM启动流程</li>
+<li>JVM基本结构</li>
+<li>内存模型</li>
+<li>编译和解释运行的概念</li>
+</ul>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$end 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+					</div>
+				</div>
+
+				
+				<footer>
+					<div>
+					Copyright &copy; 2018.NOPSMILE BLOG All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+
+	</body>
+</html>
+
