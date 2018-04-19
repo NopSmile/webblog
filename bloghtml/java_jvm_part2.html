@@ -1,0 +1,457 @@
+	<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NopSmile's BLOG</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="../css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="../css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	 <link rel="shortcut icon" href="../images/favicon.ico"/>
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+		<!--$$$$$$$$$图片$$$$$$$$$$$$-->
+		<div id="fh5co-aside" style="background-image: url(../images/java1.jpg)">
+			<div class="overlay"></div>
+			<nav role="navigation">
+				<ul>
+					<li><a href="zjavaall.html"><i class="icon-arrow-left"></i></a></li>
+				</ul>
+			</nav>
+			<div class="featured">
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<span class="fh5co-post-date">2018年4月19日15:19:39</span>
+			<!--$$$$$$$$$$$$$$$$$$$$$$$$时间$$$$$$$$$$$$$$$$$$$$$$$$-->
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+				<h2>JVM(java virtual machine)相关知识(part 2)</h2>
+				<!--$$$$$$$$$标题$$$$$$$$$$$$-->
+			</div>
+		</div>
+		<div id="fh5co-main-content">
+			<div class="fh5co-post"> 
+				<div class="fh5co-entry padding">
+					<img src="../images/java.jpg" alt="java相关">
+					<div>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$begin 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+<h3>JVM(java virtual machine)相关知识(part 2 常用JVM配置参数)</h3>
+<ul>
+<li>new generation(新生代)</li>
+<li>eden(伊甸园，对象出生的地方)</li>
+<li>from(对等to幸存代)S0</li>
+<li>to(对等from幸存代)S1</li>
+<li>tenured generation(老年代)</li>
+</ul>
+<hr>
+<ul>
+<li>Trace跟踪参数</li>
+<li>堆的分配参数</li>
+<li>栈的分配参数</li>
+</ul>
+<h2>Trace跟踪参数</h2>
+<ul>
+<li>-verbose:gc</li>
+<li>-XX:+printGC</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>可以打印GC的简要信息</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC 4790K-&gt;374K(15872K), 0.0001606 secs]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC 4790K-&gt;374K(15872K), 0.0001474 secs]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC 4790K-&gt;374K(15872K), 0.0001563 secs]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC 4790K-&gt;374K(15872K), 0.0001682 secs]</span></span></span>
+</pre>
+<ul>
+<li>-XX:+PrintGCDetails
+打印GC详细信息</li>
+<li>-XX:+PrintGCTimeStamps
+打印CG发生的时间戳</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>例</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC[DefNew: 4416K-&gt;0K(4928K), 0.0001897 secs] 4790K-&gt;374K(15872K),</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>0.0002232 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]</span></span></span>
+</pre>
+<ul>
+<li>-XX:+PrintGCDetails的输出</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heap</span></span></span>
+<span class="syntax--text syntax--plain"><span>                                                 </span><span class="syntax--meta syntax--paragraph syntax--text"><span>低边界       当前边界      最高边界</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>def new generation   total 13824K, used 11223K [0x27e80000, 0x28d80000, 0x28d80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>  </span><span class="syntax--meta syntax--paragraph syntax--text"><span>eden space 12288K,  91% used [0x27e80000, 0x28975f20, 0x28a80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  from space 1536K,   0% used [0x28a80000, 0x28a80000, 0x28c00000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  to   space 1536K,   0% used [0x28c00000, 0x28c00000, 0x28d80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>tenured generation   total 5120K, used 0K [0x28d80000, 0x29280000, 0x34680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 5120K,   0% used [0x28d80000, 0x28d80000, 0x28d80200, 0x29280000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>compacting perm gen  total 12288K, used 142K [0x34680000, 0x35280000, 0x38680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 12288K,   1% used [0x34680000, 0x346a3a90, 0x346a3c00, 0x35280000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>    </span><span class="syntax--meta syntax--paragraph syntax--text"><span>ro space 10240K,  44% used [0x38680000, 0x38af73f0, 0x38af7400, 0x39080000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>    rw space 12288K,  52% used [0x39080000, 0x396cdd28, 0x396cde00, 0x39c80000)</span></span></span>
+</pre>
+<ul>
+<li>-Xloggc:log/gc.log<br>
+指定GC log的位置，以文件输出<br>
+帮助开发人员分析问题</li>
+<li>-XX:+PrintHeapAtGC<br>
+每次一次GC后，都打印堆信息</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heap before GC invocations=0 (full 0):</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>def new generation   total 3072K, used 2752K [0x33c80000, 0x33fd0000, 0x33fd0000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>  </span><span class="syntax--meta syntax--paragraph syntax--text"><span>eden space 2752K, 100% used [0x33c80000, 0x33f30000, 0x33f30000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  from space 320K,   0% used [0x33f30000, 0x33f30000, 0x33f80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  to   space 320K,   0% used [0x33f80000, 0x33f80000, 0x33fd0000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>tenured generation   total 6848K, used 0K [0x33fd0000, 0x34680000, 0x34680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 6848K,   0% used [0x33fd0000, 0x33fd0000, 0x33fd0200, 0x34680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>compacting perm gen  total 12288K, used 143K [0x34680000, 0x35280000, 0x38680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 12288K,   1% used [0x34680000, 0x346a3c58, 0x346a3e00, 0x35280000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>    </span><span class="syntax--meta syntax--paragraph syntax--text"><span>ro space 10240K,  44% used [0x38680000, 0x38af73f0, 0x38af7400, 0x39080000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>    rw space 12288K,  52% used [0x39080000, 0x396cdd28, 0x396cde00, 0x39c80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[GC[DefNew: 2752K-&gt;320K(3072K), 0.0014296 secs] 2752K-&gt;377K(9920K), 0.0014604 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Heap after GC invocations=1 (full 0):</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>def new generation   total 3072K, used 320K [0x33c80000, 0x33fd0000, 0x33fd0000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>  </span><span class="syntax--meta syntax--paragraph syntax--text"><span>eden space 2752K,   0% used [0x33c80000, 0x33c80000, 0x33f30000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  from space 320K, 100% used [0x33f80000, 0x33fd0000, 0x33fd0000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  to   space 320K,   0% used [0x33f30000, 0x33f30000, 0x33f80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>tenured generation   total 6848K, used 57K [0x33fd0000, 0x34680000, 0x34680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 6848K,   0% used [0x33fd0000, 0x33fde458, 0x33fde600, 0x34680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>compacting perm gen  total 12288K, used 143K [0x34680000, 0x35280000, 0x38680000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>the space 12288K,   1% used [0x34680000, 0x346a3c58, 0x346a3e00, 0x35280000)</span></span></span>
+<span class="syntax--text syntax--plain"><span>    </span><span class="syntax--meta syntax--paragraph syntax--text"><span>ro space 10240K,  44% used [0x38680000, 0x38af73f0, 0x38af7400, 0x39080000)</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>    rw space 12288K,  52% used [0x39080000, 0x396cdd28, 0x396cde00, 0x39c80000)</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<ul>
+<li>-XX:+TraceClassLoading</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>监控类的加载</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.Object from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.io.Serializable from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.Comparable from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.CharSequence from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.String from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.reflect.GenericDeclaration from shared objects file]</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>[Loaded java.lang.reflect.Type from shared objects file]</span></span></span>
+</pre>
+<ul>
+<li>-XX:+PrintClassHistogram<br></li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>按下Ctrl+Break后，打印类的信息：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>num     #instances         #bytes  class name</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>----------------------------------------------</span></span></span>
+<span class="syntax--text syntax--plain"><span>  </span><span class="syntax--meta syntax--paragraph syntax--text"><span>1:        890617      470266000  [B</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  2:        890643       21375432  java.util.HashMap$Node</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  3:        890608       14249728  java.lang.Long</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  4:            13        8389712  [Ljava.util.HashMap$Node;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  5:          2062         371680  [C</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>  6:           463          41904  java.lang.Class</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>分别显示：序号、实例数量、总大小、类型</span></span></span>
+</pre>
+<ul>
+<li>-Xmx –Xms<br>
+指定最大堆和最小堆<br></li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xmx20m -Xms5m  运行代码：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("Xmx=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().maxMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("free mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().freeMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("total mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().totalMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Xmx=19.375M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>free mem=4.342750549316406M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>total mem=4.875M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>--------------------------------------------</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xmx20m -Xms5m  运行代码</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println("分配了1M空间给数组");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("Xmx=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().maxMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("free mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().freeMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("total mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().totalMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>分配了1M空间给数组</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Xmx=19.375M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>free mem=3.4791183471679688M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>total mem=4.875M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>----------------------------------------------</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xmx20m -Xms5m  运行代码</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[4*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println("分配了4M空间给数组");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("Xmx=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().maxMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("free mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().freeMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("total mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().totalMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>分配了4M空间给数组</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Xmx=19.375M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>free mem=3.5899810791015625M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>total mem=9.00390625M</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>--------------------------------------------------------</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xmx20m -Xms5m  运行代码</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.gc();</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println("回收内存");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("Xmx=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().maxMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("free mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().freeMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.print("total mem=");</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println(Runtime.getRuntime().totalMemory()/1024.0/1024+"M");</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>回收内存</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>Xmx=19.375M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>free mem=6.354591369628906M</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>total mem=10.75390625M</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<ul>
+<li>-Xmn<br>
+设置新生代大小<br></li>
+<li>-XX:NewRatio<br>
+新生代（eden+2*s）和老年代（不包含永久区）的比值<br>
+4 表示 新生代:老年代=1:4，即年轻代占堆的1/5</li>
+<li>-XX:SurvivorRatio<br>
+设置两个Survivor区和eden的比<br>
+8表示 两个Survivor :eden=2:8，即一个Survivor占年轻代的1/10</li>
+</ul>
+<p>例子
+jvm参数1：
+-Xmx20m -Xms20m -Xmn1m  -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.1.png?v=1524105528546" alt="" title="java_jvm2.1.png"></p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>结果：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>1、没有触发GC</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>2、全部分配在老年代</span></span></span>
+</pre>
+<p>jvm参数2：
+-Xmx20m -Xms20m -Xmn15m  -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.2.png?v=1524105655301" alt="" title="java_jvm2.2.png"></p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>结果：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>1、没有触发GC</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>2、全部分配在eden</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>3、老年代没有使用</span></span></span>
+</pre>
+<p>jvm参数3：
+-Xmx20m -Xms20m –Xmn7m  -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.3.png?v=1524105715983" alt="" title="java_jvm2.3.png"></p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>结果：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>1.进行了2次新生代GC</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>2.s0 s1 太小需要老年代担保</span></span></span>
+</pre>
+<p>jvm参数4：
+-Xmx20m -Xms20m -Xmn7m   -XX:SurvivorRatio=2 -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.4.png?v=1524105831906" alt="" title="java_jvm2.4.png"></p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>结果：</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>1.进行了3次新生代GC</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>2.s0 s1 增大</span></span></span>
+</pre>
+<p>jvm参数5：
+-Xmx20m -Xms20m -XX:NewRatio=1<br>
+-XX:SurvivorRatio=2 -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.5.png?v=1524105879844" alt="" title="java_jvm2.5.png"></p>
+<p>jvm参数6：
+-Xmx20m -Xms20m -XX:NewRatio=1<br>
+-XX:SurvivorRatio=3 -XX:+PrintGCDetails</p>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public static void main(String[] args) {</span></span></span>
+<span class="syntax--text syntax--plain"><span>   </span><span class="syntax--meta syntax--paragraph syntax--text"><span>byte[] b=null;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>   for(int i=0;i&lt;10;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>       </span><span class="syntax--meta syntax--paragraph syntax--text"><span>b=new byte[1*1024*1024];</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.6.png?v=1524105942122" alt="" title="java_jvm2.6.png"></p>
+<ul>
+<li>-XX:+HeapDumpOnOutOfMemoryError<br>
+OOM时导出堆到文件</li>
+<li>-XX:+HeapDumpPath
+导出OOM的路径<br>
+-Xmx20m -Xms5m -XX:+HeapDumpOnOutOfMemoryError<br> -XX:HeapDumpPath=d:/a.dump<br></li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span> </span><span class="syntax--meta syntax--paragraph syntax--text"><span>Vector v=new Vector();</span></span></span>
+<span class="syntax--text syntax--plain"><span>        </span><span class="syntax--meta syntax--paragraph syntax--text"><span>for(int i=0;i&lt;25;i++)</span></span></span>
+<span class="syntax--text syntax--plain"><span>            </span><span class="syntax--meta syntax--paragraph syntax--text"><span>v.add(new byte[1*1024*1024]);</span></span></span>
+</pre>
+<ul>
+<li>-XX:OnOutOfMemoryError</li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>在OOM时，执行一个脚本</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>"-XX:OnOutOfMemoryError=D:/tools/jdk1.7_40/bin/printstack.bat %p"</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>当程序OOM时，在D:/a.txt中将会生成线程的dump</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>可以在OOM时，发送邮件，甚至是重启程序</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>printstack.bat</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>D:/tools/jdk1.7_40/bin/jstack -F %1 &gt; D:/a.txt</span></span></span>
+</pre>
+<h3>堆的分配参数 – 总结</h3>
+<p>根据实际事情调整新生代和幸存代的大小<br>
+官方推荐新生代占堆的3/8<br>
+幸存代占新生代的1/10<br>
+在OOM时，记得Dump出堆，确保可以排查现场问题<br></p>
+<h3>永久区分配参数</h3>
+<ul>
+<li>-XX:PermSize  -XX:MaxPermSize<br>
+设置永久区的初始空间和最大空间<br>
+他们表示，一个系统可以容纳多少个类型<br></li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>使用CGLIB等库的时候，可能会产生大量的类，这些类，有可能撑爆永久区导致OOM</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>for(int i=0;i&lt;100000;i++){</span></span></span>
+<span class="syntax--text syntax--plain"><span>    </span><span class="syntax--meta syntax--paragraph syntax--text"><span>CglibBean bean = new CglibBean("geym.jvm.ch3.perm.bean"+i,new HashMap());</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>不断产生新的类</span></span></span>
+</pre>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.7.png?v=1524117117302" alt="" title="java_jvm2.7.png"></p>
+<ul>
+<li>打开堆的Dump<br>
+堆空间实际占用非常少<br>
+但是永久区溢出 一样抛出OOM<br></li>
+</ul>
+<p><img src="D:\atomproject\github\webblog-master\images\jvm\java_jvm2.8.png?v=1524117173749" alt="" title="java_jvm2.8.png">
+如果堆空间没有用完也抛出了OOM，有可能是永久区导致的</p>
+<h3>栈大小分配</h3>
+<ul>
+<li>-Xss<br>
+通常只有几百K<br>
+决定了函数调用的深度<br>
+每个线程都有独立的栈空间<br>
+局部变量、参数 分配在栈上<br></li>
+</ul>
+<pre class="editor-colors lang-text"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>public class TestStackDeep {</span></span></span>
+<span class="syntax--text syntax--plain"><span>	</span><span class="syntax--meta syntax--paragraph syntax--text"><span>private static int count=0;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>	public static void recursion(long a,long b,long c){</span></span></span>
+<span class="syntax--text syntax--plain"><span>		</span><span class="syntax--meta syntax--paragraph syntax--text"><span>long e=1,f=2,g=3,h=4,i=5,k=6,q=7,x=8,y=9,z=10;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>		count++;</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>		recursion(a,b,c);</span></span></span>
+<span class="syntax--text syntax--plain"><span>	</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>	public static void main(String args[]){</span></span></span>
+<span class="syntax--text syntax--plain"><span>		</span><span class="syntax--meta syntax--paragraph syntax--text"><span>try{</span></span></span>
+<span class="syntax--text syntax--plain"><span>			</span><span class="syntax--meta syntax--paragraph syntax--text"><span>recursion(0L,0L,0L);</span></span></span>
+<span class="syntax--text syntax--plain"><span>		</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}catch(Throwable e){</span></span></span>
+<span class="syntax--text syntax--plain"><span>			</span><span class="syntax--meta syntax--paragraph syntax--text"><span>System.out.println("deep of calling = "+count);</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>			e.printStackTrace();</span></span></span>
+<span class="syntax--text syntax--plain"><span>		</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span>	</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>递归调用</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xss128K</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>deep of calling = 701</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>java.lang.StackOverflowError</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>-Xss256K</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>deep of calling = 1817</span></span></span>
+<span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>java.lang.StackOverflowError</span></span></span>
+<span class="syntax--text syntax--plain"><span></span></span>
+</pre>
+<!--$$$$$$$$$$$$$$$$$$$$$$$$end 贴html代码$$$$$$$$$$$$$$$$$$$$$$$$-->
+					</div>
+				</div>
+
+				
+				<footer>
+					<div>
+					Copyright &copy; 2018.NOPSMILE BIO All rights reserved.  &nbsp&nbsp <a target="_blank" href="https://github.com/NopSmile">章鱼猫地址-NopSmile</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+
+	</body>
+</html>
+
