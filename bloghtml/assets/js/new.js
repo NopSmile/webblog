@@ -19,9 +19,9 @@ document.getElementById("lovexin14").style.top=parseInt(document.getElementById(
 lastScrollY=lastScrollY+percent; 
 //alert(lastScrollY);
 }
-suspendcode12="<DIV id=\"lovexin12\" style='left:22px;POSITION:absolute;TOP:69px;'><a href='https://nopsmile.github.io/webblog/' target='_blank'><img border=0 src=inc/1.gif><br><a href=JavaScript:; onclick=\"lovexin12.style.visibility='hidden'\"><img border=0 src=inc/close.gif></a></div>"
+suspendcode12="<DIV id=\"lovexin12\" style='left:22px;POSITION:absolute;TOP:69px;'><a href='https://nopsmile.github.io/webblog/' target='_blank'><img border=0 src=inc/1.gif><br><a href=JavaScript:; onclick=\"lovexin12.style.visibility='hidden'\"></div>"
 
-suspendcode14="<DIV id=\"lovexin14\" style='right:22px;POSITION:absolute;TOP:69px;'><a href='https://nopsmile.github.io/webblog/' target='_blank'><img border=0 src=inc/1.gif><br><a href=JavaScript:; onclick=\"lovexin14.style.display = 'none'\"><img border=0 src=inc/close.gif></a></div>"
+suspendcode14="<DIV id=\"lovexin14\" style='right:22px;POSITION:absolute;TOP:69px;'><a href='https://nopsmile.github.io/webblog/' target='_blank'><img border=0 src=inc/1.gif><br><a href=JavaScript:; onclick=\"lovexin14.style.display = 'none'\"></div>"
 
 document.write(suspendcode12); 
 document.write(suspendcode14); 
