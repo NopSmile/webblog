@@ -1,9 +1,3 @@
-/**
-* Template Name: Mentor - v2.0.0
-* Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 /*--------------------------------------------------------------
 # General
@@ -18,7 +12,7 @@ a {
 }
 
 a:hover {
-  color: #86db9f;
+  color: #E18777;
   text-decoration: none;
 }
 
@@ -33,70 +27,6 @@ section {
   overflow: hidden;
 }
 
-.section-bg {
-  background-color: #f6f7f6;
-}
-
-.section-title {
-  padding-bottom: 40px;
-}
-
-.section-title h2 {
-  font-size: 10px;
-  font-weight: 500;
-  padding: 0;
-  line-height: 1px;
-  margin: 0 0 5px 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
-}
-
-.section-title h2::after {
-  content: "";
-  width: 120px;
-  height: 1px;
-  display: inline-block;
-  background: #9ae1af;
-  margin: 4px 10px;
-}
-
-.section-title p {
-  margin: 0;
-  margin: 0;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #37423b;
-}
-
-.breadcrumbs {
-  margin-top: 73px;
-  text-align: center;
-  background: #5fcf80;
-  padding: 30px 0;
-  color: #fff;
-}
-
-@media (max-width: 992px) {
-  .breadcrumbs {
-    margin-top: 63px;
-  }
-}
-
-.breadcrumbs h2 {
-  font-size: 32px;
-  font-weight: 500;
-}
-
-.breadcrumbs p {
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-
 
 /*--------------------------------------------------------------
 # Features
@@ -108,35 +38,7 @@ section {
 .features .icon-box {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   transition: 0.3s;
   border: 1px solid #eef0ef;
 }
-
-.features .icon-box i {
-  font-size: 32px;
-  padding-right: 10px;
-  line-height: 1;
-}
-
-.features .icon-box h3 {
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 16px;
-}
-
-.features .icon-box h3 a {
-  color: #37423b;
-  transition: 0.3s;
-}
-
-.features .icon-box:hover {
-  border-color: #5fcf80;
-}
-
-.features .icon-box:hover h3 a {
-  color: #5fcf80;
-}
-
